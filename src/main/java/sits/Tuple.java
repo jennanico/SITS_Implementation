@@ -10,4 +10,8 @@ public class Tuple {
 		this.second = second;
 	}
 
+	public Tuple() {
+
+	}
+
 }

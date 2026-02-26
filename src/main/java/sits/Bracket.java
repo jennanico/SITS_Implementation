@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public abstract class Bracket {
 	
-	ArrayList<TourneyPlayer> participantList;
+	// TODO change back to tourneyplayer
+	ArrayList<Participant> participantList;
 	
 	abstract  Tuple nextPair(State endState);
 
