@@ -10,6 +10,17 @@ public class Tournament {
 	
 	public void playTournament() {
 		
+		State currState = new State();
+		Tuple pair;
+		
+		pair = bracketType.nextPair(currState);
+		
+		while (pair != null) {
+			currState = game.play(pair.first, pair.second);
+			pair = bracketType.nextPair(currState);
+		}
+		
+		
 	}
 
 }

@@ -1,12 +1,29 @@
 package sits;
 
-public abstract class Game {
+public abstract class Game extends Subject {
 	
 	int actions;
 	State currState;
 	int roundsTaken;
 	
 	public State play(Participant player1, Participant player2) {
+		
+		while (!endGame()) {
+			
+			currState.p1Action = player1.makeChoice(actions);
+			currState.p2Action = player2.makeChoice(actions);
+			
+			scoreActions(currState.p1Action, currState.p2Action);
+			
+			player1.addMemory(currState);
+			player2.addMemory(currState);
+			
+			hook1();
+			
+		}
+		
+	    hook2();
+
 		return currState;	
 	}
 	

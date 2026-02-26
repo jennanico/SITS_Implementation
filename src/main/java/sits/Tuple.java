@@ -1,11 +1,11 @@
 package sits;
 
-public class Tuple<F, S> {
+public class Tuple {
 	
-	public F first;
-	public S second;
+	public Participant first;
+	public Participant second;
 	
-	public Tuple(F first, S second) {
+	public Tuple(Participant first, Participant second) {
 		this.first = first;
 		this.second = second;
 	}
