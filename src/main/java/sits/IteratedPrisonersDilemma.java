@@ -13,18 +13,6 @@ public class IteratedPrisonersDilemma extends Game {
 	}
 
 	@Override
-	void register(Observer listener) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	void deregister(Observer listener) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	void notification() {
 		// TODO Auto-generated method stub
 		

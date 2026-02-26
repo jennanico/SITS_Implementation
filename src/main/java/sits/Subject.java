@@ -6,8 +6,14 @@ public abstract class Subject {
 	
 	ArrayList<Observer> listeners;
 	
-	abstract void register(Observer listener);
-	abstract void deregister(Observer listener);
+	public void register(Observer listener) {
+		listeners.add(listener);
+	}
+	
+	public void deregister(Observer listener) {
+		listeners.remove(listener);
+	}
+	
 	abstract void notification();
 
 }
