@@ -38,10 +38,7 @@ class ConcreteTournamentTest {
 		
 		State state = new State();
 		
-		Tuple pair;
-		pair = tourney.bracketType.nextPair(state);
-		state.p1Name = "bob";
-		state.p2Name = "bobby";
+		Tuple pair = new Tuple();
 		while (pair != null) {
 			pair = tourney.bracketType.nextPair(state);
 		}

@@ -10,20 +10,12 @@ public class RoundRobinBracket extends Bracket {
 	public RoundRobinBracket(ArrayList<Participant> participantList) {
 		this.participantList = participantList;
 		this.counter1 = 0;
-		this.counter2 = 1;
+		this.counter2 = 0;
 	}
 
 	@Override
 	Tuple nextPair(State endState) {
 		Tuple pair = new Tuple();
-		
-		// Case for beginning of the tournament
-		if (endState.p1Name == null) {
-			pair.first = participantList.get(0);
-			pair.second = participantList.get(1);
-			
-			return pair;
-		}
 		
 		counter2++;
 		
