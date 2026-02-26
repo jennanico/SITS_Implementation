@@ -6,8 +6,6 @@ public abstract class Bracket {
 	
 	ArrayList<TourneyPlayer> participantList;
 	
-	public Tuple nextPair(State endState) {
-		return null;
-	}
+	abstract  Tuple nextPair(State endState);
 
 }
