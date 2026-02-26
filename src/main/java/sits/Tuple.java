@@ -2,10 +2,10 @@ package sits;
 
 public class Tuple {
 	
-	public Participant first;
-	public Participant second;
+	public TourneyPlayer first;
+	public TourneyPlayer second;
 	
-	public Tuple(Participant first, Participant second) {
+	public Tuple(TourneyPlayer first, TourneyPlayer second) {
 		this.first = first;
 		this.second = second;
 	}

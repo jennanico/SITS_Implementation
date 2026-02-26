@@ -7,14 +7,13 @@ public class RoundRobinBracket extends Bracket {
 	int counter1;
 	int counter2;
 	
-	public RoundRobinBracket(ArrayList<Participant> participantList) {
-		this.participantList = participantList;
+	public RoundRobinBracket() {
 		this.counter1 = 0;
 		this.counter2 = 0;
 	}
 
 	@Override
-	Tuple nextPair(State endState) {
+	Tuple nextPair(ArrayList<TourneyPlayer> participantList, State endState) {
 		Tuple pair = new Tuple();
 		
 		counter2++;

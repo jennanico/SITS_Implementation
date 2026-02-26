@@ -22,25 +22,22 @@ class ConcreteTournamentTest {
 		SelfishBot bot3 = new SelfishBot();
 		SelfishBot bot4 = new SelfishBot();
 		SelfishBot bot5 = new SelfishBot();
-				
-		ArrayList<Participant> players = new ArrayList<>();
-		players.add(bot1);
-		players.add(bot2);
-		players.add(bot3);
-		players.add(bot4);
-		players.add(bot5);
 		
-		RoundRobinBracket roundrobin = new RoundRobinBracket(null);
+		RoundRobinBracket roundrobin = new RoundRobinBracket();
 
-		Tournament tourney = new Tournament(players, null, roundrobin);
+		Tournament tourney = new Tournament(null, roundrobin);
+
+		tourney.registerPlayer(bot1);
+		tourney.registerPlayer(bot2);
+		tourney.registerPlayer(bot3);
+		tourney.registerPlayer(bot4);
+		tourney.registerPlayer(bot5);
 		
-		roundrobin.participantList = tourney.scoreboard;
-		
-		State state = new State();
-		
+		State state = new State();		
 		Tuple pair = new Tuple();
+		
 		while (pair != null) {
-			pair = tourney.bracketType.nextPair(state);
+			pair = tourney.bracketType.nextPair(tourney.scoreboard, state);
 		}
 
 		
