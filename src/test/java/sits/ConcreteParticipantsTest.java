@@ -10,26 +10,27 @@ class ConcreteParticipantsTest {
 	SelfishBot selfish = new SelfishBot();
 	SelflessBot selfless = new SelflessBot();
 	AlternatingBot alternating = new AlternatingBot();
-
-	@BeforeEach
-	void setUp() throws Exception {
-	}
+	int actions = 1;
 
 	@Test
 	void testSelfish() {
-		fail("Not yet implemented");
+		assertEquals(0, selfish.makeChoice(actions));
 	}
 	
 	@Test
 	void testSelfless() {
-
-		fail("Not yet implemented");
+		assertEquals(1, selfless.makeChoice(actions));
 	}
 	
 	@Test
 	void testAlternating() {
+		assertEquals(1, alternating.makeChoice(actions));
+		assertEquals(0, alternating.makeChoice(actions));
+		assertEquals(1, alternating.makeChoice(actions));
+		assertEquals(0, alternating.makeChoice(actions));
 
-		fail("Not yet implemented");
+
+
 	}
 
 }
