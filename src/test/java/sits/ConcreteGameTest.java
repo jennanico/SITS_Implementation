@@ -8,25 +8,53 @@ import org.junit.jupiter.api.Test;
 class ConcreteGameTest {
 	
 	SelfishBot bot1 = new SelfishBot("1");
-	SelflessBot bo2 = new SelflessBot("2");
+	SelflessBot bot2 = new SelflessBot("2");
 	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma(5);
 
 	@Test
 	void testEndConditions() {
-		IPD.play(bot1, bo2);
-		assertEquals(5, IPD.roundsTaken);
+		IPD.roundsTaken = 5;
+		assertTrue(IPD.endGame());
+		
+		IPD.roundsTaken = 4;
+		assertFalse(IPD.endGame());
 	}
 	
 	@Test
 	void testScoreActions() {
+		
+		IPD.scoreActions(0, 1);
+		assertEquals(0, IPD.currState.p1Score);
+		assertEquals(-3, IPD.currState.p2Score);
+		
+		IPD.scoreActions(1, 0);
+		assertEquals(-3, IPD.currState.p1Score);
+		assertEquals(-3, IPD.currState.p2Score);
+		
+		IPD.scoreActions(0, 0);
+		assertEquals(-5, IPD.currState.p1Score);
+		assertEquals(-5, IPD.currState.p2Score);
+		
+		IPD.scoreActions(1, 1);
+		assertEquals(-6, IPD.currState.p1Score);
+		assertEquals(-6, IPD.currState.p2Score);
 
-		fail("Not yet implemented");
 	}
 	
 	@Test
 	void testPlay() {
-
-		fail("Not yet implemented");
+		IPD.play(bot1, bot2);
+		
+		assertEquals("1", IPD.currState.p1Name);
+		assertEquals(0, IPD.currState.p1Action);
+		assertEquals(0, IPD.currState.p1Score);
+		
+		assertEquals("2", IPD.currState.p2Name);
+		assertEquals(1, IPD.currState.p2Action);
+		assertEquals(-15, IPD.currState.p2Score);
+		
+		assertEquals(5, IPD.roundsTaken);
+		
 	}
 	
 

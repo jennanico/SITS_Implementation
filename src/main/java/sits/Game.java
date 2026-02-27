@@ -8,6 +8,9 @@ public abstract class Game extends Subject {
 	
 	public State play(Participant player1, Participant player2) {
 		
+		currState.p1Name = player1.name;
+		currState.p2Name = player2.name;
+		
 		while (!endGame()) {
 			
 			currState.p1Action = player1.makeChoice(actions);
@@ -19,6 +22,8 @@ public abstract class Game extends Subject {
 			player2.addMemory(currState);
 			
 			hook1();
+			
+			roundsTaken++;
 			
 		}
 		
