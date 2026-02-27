@@ -8,10 +8,12 @@ public abstract class Subject {
 	
 	public void register(Observer listener) {
 		listeners.add(listener);
+		listener.subject = this;
 	}
 	
 	public void deregister(Observer listener) {
 		listeners.remove(listener);
+		listener.subject = this;
 	}
 	
 	abstract void notification();

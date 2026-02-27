@@ -1,7 +1,9 @@
 package sits;
 
-public interface Observer {
+public abstract class Observer {
 	
-	int update(Subject subject);
+	Subject subject;
+
+	abstract void update();
 
 }

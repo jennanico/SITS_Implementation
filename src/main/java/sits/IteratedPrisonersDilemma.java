@@ -1,5 +1,7 @@
 package sits;
 
+import java.util.ArrayList;
+
 public class IteratedPrisonersDilemma extends Game {
 	
 	int maxRounds;
@@ -9,6 +11,8 @@ public class IteratedPrisonersDilemma extends Game {
 		this.currState = new State();
 		this.roundsTaken = 0;
 		this.maxRounds = maxRounds;
+		
+		this.listeners = new ArrayList();
 	}
 
 	// Simple end condition of 5 rounds.
@@ -52,8 +56,16 @@ public class IteratedPrisonersDilemma extends Game {
 	}
 
 	@Override
-	void notification() {
-		// TODO Auto-generated method stub
+	public void hook() {
+		notification();
 	}
+
+	@Override
+	void notification() {
+		for (Observer listener : listeners) {
+			listener.update();
+		}
+	}
+	
 
 }

@@ -25,24 +25,21 @@ public abstract class Game extends Subject {
 			player1.addMemory(currState);
 			player2.addMemory(currState);
 			
-			hook1();
+			hook();
 			
 			roundsTaken++;
 			
 		}
 		
-	    hook2();
+	    hook();
 
 		return currState;	
 	}
 	
-	public void hook1() {
+	public void hook() {
 		
 	}
 	
-	public void hook2() {
-		
-	}
 	
 	abstract boolean endGame();
 	abstract void scoreActions(int player1Action, int player2Action);
