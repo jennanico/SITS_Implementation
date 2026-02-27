@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 
 class ConcreteParticipantsTest {
 	
-	SelfishBot selfish = new SelfishBot();
-	SelflessBot selfless = new SelflessBot();
-	AlternatingBot alternating = new AlternatingBot();
+	SelfishBot selfish = new SelfishBot("1");
+	SelflessBot selfless = new SelflessBot("2");
+	AlternatingBot alternating = new AlternatingBot("3");
 	int actions = 1;
 
 	@Test

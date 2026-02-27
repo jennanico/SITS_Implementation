@@ -1,10 +1,19 @@
 package sits;
 
 public class IteratedPrisonersDilemma extends Game {
+	
+	int maxRounds;
+	
+	public IteratedPrisonersDilemma(int maxRounds) {
+		this.actions = 1;
+		this.currState = new State();
+		this.roundsTaken = 0;
+		this.maxRounds = maxRounds;
+	}
 
 	// Simple end condition of 5 rounds.
 	boolean endGame() {
-		if (roundsTaken >= 5) {
+		if (roundsTaken >= maxRounds) {
 			return true;
 		}
 		

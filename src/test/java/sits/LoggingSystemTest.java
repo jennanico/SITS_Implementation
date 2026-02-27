@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class LoggingSystemTest {
 	
-	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma();
+	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma(5);
 
 	@BeforeEach
 	void setUp() throws Exception {

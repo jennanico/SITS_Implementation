@@ -9,15 +9,15 @@ import org.junit.jupiter.api.Test;
 
 class ConcreteTournamentTest {
 	
-	SelfishBot SB1 = new SelfishBot();
-	SelfishBot SB2 = new SelfishBot();
-	SelflessBot LB1 = new SelflessBot();
-	SelflessBot LB2 = new SelflessBot();
-	AlternatingBot AB1 = new AlternatingBot();
-	AlternatingBot AB2 = new AlternatingBot();
+	SelfishBot SB1 = new SelfishBot("1");
+	SelfishBot SB2 = new SelfishBot("2");
+	SelflessBot LB1 = new SelflessBot("3");
+	SelflessBot LB2 = new SelflessBot("4");
+	AlternatingBot AB1 = new AlternatingBot("5");
+	AlternatingBot AB2 = new AlternatingBot("6");
 	
 	RoundRobinBracket roundrobin = new RoundRobinBracket();
-	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma();
+	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma(5);
 	
 	Tournament tourney;
 

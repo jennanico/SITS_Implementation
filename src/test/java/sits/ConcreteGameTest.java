@@ -7,15 +7,14 @@ import org.junit.jupiter.api.Test;
 
 class ConcreteGameTest {
 	
-	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma();
-
-	@BeforeEach
-	void setUp() throws Exception {
-	}
+	SelfishBot bot1 = new SelfishBot("1");
+	SelflessBot bo2 = new SelflessBot("2");
+	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma(5);
 
 	@Test
 	void testEndConditions() {
-		fail("Not yet implemented");
+		IPD.play(bot1, bo2);
+		assertEquals(5, IPD.roundsTaken);
 	}
 	
 	@Test

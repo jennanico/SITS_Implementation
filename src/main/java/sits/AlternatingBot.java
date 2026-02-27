@@ -2,6 +2,10 @@ package sits;
 
 public class AlternatingBot extends Participant {
 
+	public AlternatingBot(String name) {
+		super(name);
+	}
+
 	int lastChoice = 0;
 	
 	@Override
