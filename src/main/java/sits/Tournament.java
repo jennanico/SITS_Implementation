@@ -30,13 +30,22 @@ public class Tournament {
 	// Core algorithm
 	public void playTournament() {
 		
-		State currState = new State();
-		Tuple pair = new Tuple();
+		Tuple pair = bracketType.nextPair(scoreboard, game.currState);
 		
 		while (pair != null) {
-			currState = game.play(pair.first.player, pair.second.player);
-			pair = bracketType.nextPair(scoreboard, currState);
+			game.play(pair.first.player, pair.second.player);
+			
+			// Update memory
+			pair.first.playersPlayed.add(pair.second);
+			pair.second.playersPlayed.add(pair.first);
+			
+			// Update scoreboard
+			pair.first.totalScore += game.currState.p1Score;
+			pair.second.totalScore += game.currState.p2Score;
+			
+			pair = bracketType.nextPair(scoreboard, game.currState);
 		}
+		
 		
 		
 	}

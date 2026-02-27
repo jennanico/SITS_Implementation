@@ -8,8 +8,12 @@ public abstract class Game extends Subject {
 	
 	public State play(Participant player1, Participant player2) {
 		
+		roundsTaken = 0;
+		
 		currState.p1Name = player1.name;
 		currState.p2Name = player2.name;
+		currState.p1Score = 0;
+		currState.p2Score = 0;
 		
 		while (!endGame()) {
 			
