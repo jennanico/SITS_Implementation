@@ -8,39 +8,55 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ConcreteTournamentTest {
-
+	
+	SelfishBot SB1 = new SelfishBot();
+	SelfishBot SB2 = new SelfishBot();
+	SelflessBot LB1 = new SelflessBot();
+	SelflessBot LB2 = new SelflessBot();
+	AlternatingBot AB1 = new AlternatingBot();
+	AlternatingBot AB2 = new AlternatingBot();
+	
+	RoundRobinBracket roundrobin = new RoundRobinBracket();
+	IteratedPrisonersDilemma IPD = new IteratedPrisonersDilemma();
+	
+	Tournament tourney;
 
 	@BeforeEach
 	void setUp() throws Exception {
+		tourney = new Tournament(IPD, roundrobin);
+		
+		tourney.registerPlayer(SB1);
+		tourney.registerPlayer(SB2);
+		tourney.registerPlayer(LB1);
+		tourney.registerPlayer(LB2);
+		tourney.registerPlayer(AB1);
+		tourney.registerPlayer(AB2);
 		
 	}
 
 	@Test
-	void testRoundRobin() {
-		SelfishBot bot1 = new SelfishBot();
-		SelfishBot bot2 = new SelfishBot();
-		SelfishBot bot3 = new SelfishBot();
-		SelfishBot bot4 = new SelfishBot();
-		SelfishBot bot5 = new SelfishBot();
-		
-		RoundRobinBracket roundrobin = new RoundRobinBracket();
+	void testTournAttsSet() {
 
-		Tournament tourney = new Tournament(null, roundrobin);
-
-		tourney.registerPlayer(bot1);
-		tourney.registerPlayer(bot2);
-		tourney.registerPlayer(bot3);
-		tourney.registerPlayer(bot4);
-		tourney.registerPlayer(bot5);
-		
-		State state = new State();		
-		Tuple pair = new Tuple();
-		
-		while (pair != null) {
-			pair = tourney.bracketType.nextPair(tourney.scoreboard, state);
-		}
-
-		
+		fail("Not yet implemented");
 	}
+	
+	@Test
+	void testPlayersRegistered() {
 
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testBracketNextPair() {
+
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testScoresUpdate() {
+
+		fail("Not yet implemented");
+	}
+	
+	
 }
