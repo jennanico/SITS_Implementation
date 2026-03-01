@@ -28,9 +28,6 @@ class ConcreteParticipantsTest {
 		assertEquals(0, alternating.makeChoice(actions));
 		assertEquals(1, alternating.makeChoice(actions));
 		assertEquals(0, alternating.makeChoice(actions));
-
-
-
 	}
 
 }

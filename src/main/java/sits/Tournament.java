@@ -23,6 +23,14 @@ public class Tournament {
 	
 	// Type converter -- register a Participant into a TourneyPlayer
 	public void registerPlayer(Participant player) {
+		
+		// Ensure not adding a player already present in the scoreboard
+		for (TourneyPlayer currPlayer : scoreboard) {
+			if (currPlayer.player == player) {
+				return;
+			}
+		}
+		
 		TourneyPlayer newPlayer = new TourneyPlayer(player);
 		scoreboard.add(newPlayer);
 	}

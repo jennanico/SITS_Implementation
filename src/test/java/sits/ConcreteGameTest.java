@@ -42,6 +42,18 @@ class ConcreteGameTest {
 	}
 	
 	@Test
+	void testBadInputScoreActions() {
+		IPD.scoreActions(2, 3);
+		assertTrue(IPD.currState.p1Score == 0 && IPD.currState.p2Score == 0);
+		
+		IPD.scoreActions(1, 3);
+		assertTrue(IPD.currState.p1Score == 0 && IPD.currState.p2Score == 0);
+		
+		IPD.scoreActions(2, 0);
+		assertTrue(IPD.currState.p1Score == 0 && IPD.currState.p2Score == 0);
+	}
+	
+	@Test
 	void testPlay() {
 		IPD.play(bot1, bot2);
 		

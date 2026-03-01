@@ -33,6 +33,13 @@ public class IteratedPrisonersDilemma extends Game {
 		// 0 = testify
 		// 1 = stay silent
 		
+		
+		// Bad input
+		if ( !((player1Action == 1 || player1Action == 0) && (player2Action == 1 || player2Action == 0)) ) {
+			return;
+		}
+		
+		
 		// Case one
 		if (player1Action == 0 && player2Action == 1) 
 		{

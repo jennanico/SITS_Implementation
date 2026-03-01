@@ -33,7 +33,6 @@ class LoggingSystemTest {
 	void testRegisterListener() {
 		assertTrue(IPD.listeners.contains(gameLogger));
 		assertTrue(IPD.listeners.contains(resultLogger));
-
 	}
 	
 	@Test

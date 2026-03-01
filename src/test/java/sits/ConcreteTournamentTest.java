@@ -52,6 +52,15 @@ class ConcreteTournamentTest {
 		assertEquals(0, tp.playersPlayed.size());
 	}
 	
+	
+	@Test
+	void testBadInputRegisterPlayer() {
+		assertEquals(6, tourney.scoreboard.size());
+		tourney.registerPlayer(AB2);
+		assertEquals(6, tourney.scoreboard.size());
+	}
+	
+	
 	@Test
 	void testBracketNextPair() {
 		
@@ -80,7 +89,6 @@ class ConcreteTournamentTest {
 		assertEquals(-57, tourney.scoreboard.get(3).totalScore);
 		assertEquals(-37, tourney.scoreboard.get(4).totalScore);
 		assertEquals(-37, tourney.scoreboard.get(5).totalScore);
-
 
 	}
 	
