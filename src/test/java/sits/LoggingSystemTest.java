@@ -3,10 +3,7 @@ package sits;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.assertj.core.util.Files;
 import org.codehaus.plexus.util.StringUtils;

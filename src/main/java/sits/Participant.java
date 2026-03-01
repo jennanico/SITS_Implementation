@@ -9,7 +9,7 @@ public abstract class Participant {
 	
 	public Participant(String name) {
 		this.name = name;
-		this.memory = new ArrayList();
+		this.memory = new ArrayList<>();
 	}
 	
 	public void addMemory(State state) {

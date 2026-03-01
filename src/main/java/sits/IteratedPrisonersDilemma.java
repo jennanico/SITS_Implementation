@@ -12,7 +12,7 @@ public class IteratedPrisonersDilemma extends Game {
 		this.roundsTaken = 0;
 		this.maxRounds = maxRounds;
 		
-		this.listeners = new ArrayList();
+		this.listeners = new ArrayList<>();
 	}
 
 	// Simple end condition of 5 rounds.
