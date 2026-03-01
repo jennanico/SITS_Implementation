@@ -58,6 +58,12 @@ class ConcreteTournamentTest {
 		assertEquals(6, tourney.scoreboard.size());
 	}
 	
+	@Test
+	void testTuple() {
+		Tuple pair = new Tuple(tourney.scoreboard.get(0), tourney.scoreboard.get(1));
+		assertEquals(tourney.scoreboard.get(0), pair.first);
+		assertEquals(tourney.scoreboard.get(1), pair.second);
+	}
 	
 	@Test
 	void testBracketNextPair() {

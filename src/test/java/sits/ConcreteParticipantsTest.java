@@ -13,6 +13,21 @@ class ConcreteParticipantsTest {
 	int actions = 1;
 
 	@Test
+	void testAddMem() {
+		selfish.addMemory(new State());
+		assertEquals(1, selfish.memory.size());
+	}
+	
+	@Test
+	void testClearMem() {
+		selfish.addMemory(new State());
+		assertEquals(1, selfish.memory.size());
+
+		selfish.clearMemory();
+		assertEquals(0, selfish.memory.size());
+	}
+	
+	@Test
 	void testSelfish() {
 		assertEquals(0, selfish.makeChoice(actions));
 	}
