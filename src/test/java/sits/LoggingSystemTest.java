@@ -43,8 +43,8 @@ class LoggingSystemTest {
 	
 	@Test
 	void testClearCache() {
-		gameLogger.clearCache();
-		resultLogger.clearCache();
+		gameLogger.clearCache("gameActionsLog.txt");
+		resultLogger.clearCache("gameResultsLog.txt");
 		
 		File file = new File("gameActionsLog.txt");
 		File file2 = new File("gameResultsLog.txt");
@@ -63,11 +63,14 @@ class LoggingSystemTest {
 	void testWriteBadInput() {
 		gameLogger.writeToFile("/i/do/not/exist.txt", IPD);
 		resultLogger.writeToFile("/i/do/not/exist.txt", IPD);
+		
+		gameLogger.clearCache("/i/do/not/exist.txt");
+		resultLogger.clearCache("/i/do/not/exist.txt");
 	}
 	
 	@Test
 	void testUpdateActionLogger() {
-		gameLogger.clearCache();
+		gameLogger.clearCache("gameActionsLog.txt");
 		
 		IPD.play(bot1, bot2);
 		
@@ -82,7 +85,7 @@ class LoggingSystemTest {
 	
 	@Test
 	void testUpdateResultLogger() {
-		resultLogger.clearCache();
+		resultLogger.clearCache("gameResultsLog.txt");
 		
 		IPD.play(bot1, bot2);
 		
@@ -97,8 +100,8 @@ class LoggingSystemTest {
 	
 	@Test
 	void testTournamentLogging() {
-		gameLogger.clearCache();
-		resultLogger.clearCache();
+		gameLogger.clearCache("gameActionsLog.txt");
+		resultLogger.clearCache("gameResultsLog.txt");
 		
 		RoundRobinBracket roundrobin = new RoundRobinBracket();
 		Tournament tourney = new Tournament(IPD, roundrobin);

@@ -47,9 +47,10 @@ public class ResultLogger extends Observer {
 	
 	/*
 	 * Clear file contents.
+	 * @param fileName		file to clear
 	 */
-	public void clearCache() {
-		try (FileWriter file = new FileWriter("gameResultsLog.txt")) 
+	public void clearCache(String fileName) {
+		try (FileWriter file = new FileWriter(fileName)) 
 		{
 		} catch (IOException e) {
 			System.out.println("Error!");
