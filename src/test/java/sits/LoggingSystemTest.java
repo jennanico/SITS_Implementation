@@ -3,6 +3,7 @@ package sits;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import org.assertj.core.util.Files;
@@ -55,6 +56,13 @@ class LoggingSystemTest {
 
 		String fileContent2 = Files.contentOf(file2, StandardCharsets.UTF_8);
 		assertTrue(fileContent2.contains(""));
+	}
+	
+	
+	@Test
+	void testWriteBadInput() {
+		gameLogger.writeToFile("/i/do/not/exist.txt", IPD);
+		resultLogger.writeToFile("/i/do/not/exist.txt", IPD);
 	}
 	
 	@Test

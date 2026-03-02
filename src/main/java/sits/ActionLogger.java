@@ -8,8 +8,12 @@ public class ActionLogger extends Observer {
 	@Override
 	public void update() {
 		Game gameSubject = (Game) subject;
+		writeToFile("gameActionsLog.txt", gameSubject);
+	}
+	
+	public void writeToFile(String fileName, Game gameSubject) {
 		
-		try (FileWriter file = new FileWriter("gameActionsLog.txt", true)) {
+		try (FileWriter file = new FileWriter(fileName, true)) {
 			
 			if (gameSubject.roundsTaken == 0) {
 				file.write("\n\nP1: " + gameSubject.currState.p1Name + " vs. P2: " + gameSubject.currState.p2Name);
@@ -21,7 +25,6 @@ public class ActionLogger extends Observer {
 			System.out.println("Error!");
 			e.printStackTrace();
 		}
-				
 	}
 	
 	public void clearCache() {

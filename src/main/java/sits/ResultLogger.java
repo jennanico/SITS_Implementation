@@ -8,8 +8,12 @@ public class ResultLogger extends Observer {
 	@Override
 	void update() {
 		Game gameSubject = (Game) subject;
+		writeToFile("gameResultsLog.txt", gameSubject);
+	}
+	
+	public void writeToFile(String fileName, Game gameSubject) {
 		
-		try (FileWriter file = new FileWriter("gameResultsLog.txt", true)) {
+		try (FileWriter file = new FileWriter(fileName, true)) {
 			
 			if (gameSubject.endGame()) {
 				
@@ -22,7 +26,6 @@ public class ResultLogger extends Observer {
 			System.out.println("Error!");
 			e.printStackTrace();
 		}
-
 	}
 	
 	public void clearCache() {
