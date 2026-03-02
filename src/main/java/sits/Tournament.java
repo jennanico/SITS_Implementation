@@ -4,24 +4,37 @@ import java.util.ArrayList;
 
 public class Tournament {
 	
-	ArrayList<TourneyPlayer> scoreboard;
+	/*
+	 * Tournament class for the SITS program.
+	 * Facilitates an environment where players can compete in a repeated competitive environment.
+	 */
 	
-	Game game;
-	Bracket bracketType;
+	ArrayList<TourneyPlayer> scoreboard;	// roster of players
+	Game game;								// game to be played
+	Bracket bracketType;					// type of tournament bracket
 	
+	/*
+	 * Constructor.
+	 */
 	public Tournament(ArrayList<TourneyPlayer> scoreboard, Game game, Bracket bracketType) {
 		this.scoreboard = scoreboard;
 		this.game = game;
 		this.bracketType = bracketType;
 	}
 	
+	/*
+	 * Constructor option 2.
+	 */
 	public Tournament(Game game, Bracket bracketType) {
 		this.scoreboard = new ArrayList<>();
 		this.game = game;
 		this.bracketType = bracketType;
 	}
 	
-	// Type converter -- register a Participant into a TourneyPlayer
+	/*
+	 * Type converter--register a Participant into a TourneyPlayer.
+	 * @param player		Participant to be registered
+	 */
 	public void registerPlayer(Participant player) {
 		
 		// Ensure not adding a player already present in the scoreboard
@@ -35,12 +48,17 @@ public class Tournament {
 		scoreboard.add(newPlayer);
 	}
 	
-	// Core algorithm
+	/*
+	 * Core algorithm that allows players to play against each other as the bracket progresses.
+	 */
 	public void playTournament() {
 		
+		// Obtain the first pairing
 		Tuple pair = bracketType.nextPair(scoreboard, game.currState);
 		
+		// Move through the bracket until no pairings are left
 		while (pair != null) {
+			
 			game.play(pair.first.player, pair.second.player);
 			
 			// Update memory
@@ -51,13 +69,11 @@ public class Tournament {
 			pair.first.totalScore += game.currState.p1Score;
 			pair.second.totalScore += game.currState.p2Score;
 			
+			// Next pair
 			pair = bracketType.nextPair(scoreboard, game.currState);
 		}
-		
-		
-		
+			
 	}
-
 	
 
 }

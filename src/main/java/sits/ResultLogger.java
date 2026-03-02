@@ -4,13 +4,29 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class ResultLogger extends Observer {
+	
+	/*
+	 * ResultLogger class for SITS program.
+	 * An observer that logs the results of an IPD game.
+	 */
 
+	
+	/*
+	 * Update method.
+	 * Delegates to writeToFile() after typecasting subject.
+	 */
 	@Override
 	void update() {
 		Game gameSubject = (Game) subject;
 		writeToFile("gameResultsLog.txt", gameSubject);
 	}
 	
+	
+	/*
+	 * Writes game results to file.
+	 * @param fileName		file name to be written in
+	 * @gameSubject			observer subject, i.e., the just-concluded game being recorded
+	 */
 	public void writeToFile(String fileName, Game gameSubject) {
 		
 		try (FileWriter file = new FileWriter(fileName, true)) {
@@ -28,6 +44,10 @@ public class ResultLogger extends Observer {
 		}
 	}
 	
+	
+	/*
+	 * Clear file contents.
+	 */
 	public void clearCache() {
 		try (FileWriter file = new FileWriter("gameResultsLog.txt")) 
 		{
@@ -36,5 +56,6 @@ public class ResultLogger extends Observer {
 			e.printStackTrace();
 		}
 	}
+	
 
 }

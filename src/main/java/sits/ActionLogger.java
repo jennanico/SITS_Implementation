@@ -5,12 +5,29 @@ import java.io.IOException;
 
 public class ActionLogger extends Observer {
 
+	/*
+	 * ActionLogger class for SITS program.
+	 * An observer that logs every agent action inside an IPD game.
+	 */
+
+	
+	/*
+	 * Update method.
+	 * Delegates to writeToFile() after typecasting subject.
+	 */
+	
 	@Override
 	public void update() {
 		Game gameSubject = (Game) subject;
 		writeToFile("gameActionsLog.txt", gameSubject);
 	}
 	
+	
+	/*
+	 * Writes game results to file.
+	 * @param fileName		file name to be written in
+	 * @gameSubject			observer subject, i.e., the game whose actions are being recorded
+	 */
 	public void writeToFile(String fileName, Game gameSubject) {
 		
 		try (FileWriter file = new FileWriter(fileName, true)) {
@@ -27,6 +44,10 @@ public class ActionLogger extends Observer {
 		}
 	}
 	
+	
+	/*
+	 * Clear file contents.
+	 */
 	public void clearCache() {
 		try (FileWriter file = new FileWriter("gameActionsLog.txt")) 
 		{

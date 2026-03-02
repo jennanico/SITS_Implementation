@@ -2,12 +2,26 @@ package sits;
 
 public abstract class Game extends Subject {
 	
-	int actions;
-	State currState;
+	/*
+	 * Game class for the SITS program.
+	 * Provides an abstract framework for a 2-player, decision based game.
+	 * Subclasses must specify game scoring logic & end conditions.
+	 */
+	
+	int actions;		// amount of available actions to choose from
+	State currState;	// current state of the game
 	int roundsTaken;
 	
+	
+	/*
+	 * Core algorithm for playing a game. Until the end conditions are met, allow players to make decisions each round.
+	 * 
+	 * @param player1		player 1 participant.
+	 * @param player2		player 2 participant.
+	 */
 	public State play(Participant player1, Participant player2) {
 		
+		// First, reset counters/state variables
 		roundsTaken = 0;
 		
 		currState.p1Name = player1.name;
@@ -15,6 +29,7 @@ public abstract class Game extends Subject {
 		currState.p1Score = 0;
 		currState.p2Score = 0;
 		
+		// Main loop
 		while (!endGame()) {
 			
 			currState.p1Action = player1.makeChoice(actions);
@@ -25,17 +40,19 @@ public abstract class Game extends Subject {
 			player1.addMemory(currState);
 			player2.addMemory(currState);
 			
-			hook();
+			hook();	// Allows listeners to hook in
 			
 			roundsTaken++;
 			
 		}
 		
-	    hook();
+	    hook();	// Allows listeners to hook in
 
 		return currState;	
 	}
 	
+	
+	// Hook function, deliberately empty
 	public void hook() {
 		
 	}

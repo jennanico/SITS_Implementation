@@ -4,14 +4,27 @@ import java.util.ArrayList;
 
 public class RoundRobinBracket extends Bracket {
 	
-	int counter1;
+	/*
+	 * RoundRobinBracket class for SITS program.
+	 * Implements a round robin style bracket.
+	 */
+	
+	int counter1; 		// two counters that cycle through the list of participants
 	int counter2;
 	
+	/*
+	 * Constructor.
+	 */
 	public RoundRobinBracket() {
 		this.counter1 = 0;
 		this.counter2 = 0;
 	}
 
+	/*
+	 * Core algorithm. Manually indexes through the list of participants so that each player plays each other once.
+	 * @param participantList		roster of players, generally Tournament.scoreboard
+	 * @param endState				results state of the most recently concluded game
+	 */
 	@Override
 	Tuple nextPair(ArrayList<TourneyPlayer> participantList, State endState) {
 		Tuple pair = new Tuple();
@@ -41,5 +54,6 @@ public class RoundRobinBracket extends Bracket {
 		return pair;
 		
 	}
+	
 
 }
