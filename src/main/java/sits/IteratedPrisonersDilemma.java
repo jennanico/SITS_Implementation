@@ -81,10 +81,10 @@ public class IteratedPrisonersDilemma extends Game {
 
 	
 	/*
-	 * Override hook() function to notify listeners within the inherited play() algorithm.
+	 * Override handleCustomCode() function to notify listeners within the inherited play() algorithm.
 	 */
 	@Override
-	public void hook() {
+	public void handleCustomCode() {
 		notification();
 	}
 

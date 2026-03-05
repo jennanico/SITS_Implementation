@@ -40,20 +40,20 @@ public abstract class Game extends Subject {
 			player1.addMemory(currState);
 			player2.addMemory(currState);
 			
-			hook();	// Allows listeners to hook in
+			handleCustomCode();	// Hook function, such as for listeners
 			
 			roundsTaken++;
 			
 		}
 		
-	    hook();	// Allows listeners to hook in
+	    handleCustomCode();	// Second hook opportunity
 
 		return currState;	
 	}
 	
 	
 	// Hook function, deliberately empty
-	public void hook() {
+	public void handleCustomCode() {
 		
 	}
 	
